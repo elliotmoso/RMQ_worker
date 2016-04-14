@@ -1,5 +1,5 @@
 {
-  "name": "brutalsys/RMQ_worker",
+  "name": "brutalsys/rmq_worker",
   "description": "Rabbitmq daemon consumer",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -15,6 +15,7 @@
     }
   },
   "require": {
+    "php":">=7.0.0",
     "php-amqplib/php-amqplib": "2.6.*",
     "caseyamcl/Configula": "~2.2",
     "monolog/monolog": "^1.18",
