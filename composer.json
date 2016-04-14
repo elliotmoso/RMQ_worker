@@ -9,6 +9,11 @@
       "email": "elliot@brutalsys.com"
     }
   ],
+  "autoload":{
+    "psr-0": {
+      "BSYS":"src/BSYS/"
+    }
+  },
   "require": {
     "php-amqplib/php-amqplib": "2.6.*",
     "caseyamcl/Configula": "~2.2",

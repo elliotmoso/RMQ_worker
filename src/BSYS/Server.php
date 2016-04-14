@@ -5,7 +5,7 @@
      * Date: 15/04/2016
      * Time: 1:04
      */
-    
+
     namespace BSYS;
     require_once "../../vendor/autoload.php";
 
