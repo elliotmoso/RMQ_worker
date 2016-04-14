@@ -111,7 +111,6 @@
         private $force_destroy=false;
         private $consumers=[];
         private $consumers_id=[];
-        private $RMQ_api;
         private $max_workers=null;
         private $min_workers=1;
         private $worker_limits=array(
@@ -188,7 +187,7 @@
             if($config)
                 $this->setConfigFile($config);
         }
-        public function __construct($daemon=false,$worker_class='\LVMCE\Cloud')
+        public function __construct(string $worker_class,$daemon=false)
         {
             if(version_compare(phpversion(),'7.0.0','<')){
                 echo('Requires PHP7'.PHP_EOL);
@@ -196,11 +195,10 @@
             }
             $this->worker_class=$worker_class;
             $this->daemon=$daemon;
-            @cli_set_process_title("LVMCloud Server");
+            @cli_set_process_title("RMQ Worker Server");
             $this->pid=getmypid();
             $this->getopt();
             $this->getConfig();
-            $this->RMQ_api=new RMQ\API($this->config);
         }
         private function configureLogger(){
             $this->logger=new Logger($this->config['log_base']);
@@ -281,7 +279,7 @@
                 }
                 posix_setuid($user['uid']);
                 posix_setgid($group['gid']);
-                $server=new Server(true,$this->worker_class);
+                $server=new Server($this->worker_class,true);
                 $server->start();
                 exit(0);
             }

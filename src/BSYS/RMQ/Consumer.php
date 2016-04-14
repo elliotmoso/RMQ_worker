@@ -41,7 +41,7 @@
             $this->server=$server;
             $this->configureLogger();
             if(extension_loaded('pcntl'))
-                @cli_set_process_title("LVMCloud Worker [Master: {$server->pid}]");
+                @cli_set_process_title("RMQ Worker [Master: {$server->pid}]");
             $this->configureSignals();
             if(extension_loaded('pcntl'))
                 pcntl_signal_dispatch();
