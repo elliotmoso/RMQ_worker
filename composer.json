@@ -1,0 +1,19 @@
+{
+  "name": "brutalsys/RMQ_worker",
+  "description": "Rabbitmq daemon consumer",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Elliot Morales Sole",
+      "email": "elliot@brutalsys.com"
+    }
+  ],
+  "require": {
+    "php-amqplib/php-amqplib": "2.6.*",
+    "caseyamcl/Configula": "~2.2",
+    "monolog/monolog": "^1.18",
+    "ruflin/elastica": "^3.1",
+    "ulrichsg/getopt-php": "2.3.*"
+  }
+}
