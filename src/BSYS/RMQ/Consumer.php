@@ -39,13 +39,14 @@
             $this->shm->write($id,false);
             $this->id=$id?:getmypid();
             $this->server=$server;
+            $this->config=clone $server->config;
             $this->configureLogger();
             if(extension_loaded('pcntl'))
                 @cli_set_process_title("RMQ Worker [Master: {$server->pid}]");
             $this->configureSignals();
             if(extension_loaded('pcntl'))
                 pcntl_signal_dispatch();
-            $this->config=clone $server->config;
+
             set_error_handler([$this,"errorHandler"]);
             register_shutdown_function([$this,"check_for_fatal"]);
             $this->start();
