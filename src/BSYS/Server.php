@@ -7,8 +7,6 @@
      */
 
     namespace BSYS;
-    require_once "../../vendor/autoload.php";
-
     use BSYS\RMQ\Consumer;
     use BSYS\RMQ\SHM;
     use Monolog\Logger;
@@ -29,7 +27,7 @@
      */
     class Server
     {
-        const VERSION="1.1.2";
+        const VERSION="1.1.3";
         public $pid;
         public $config;
         public $daemon=false;
